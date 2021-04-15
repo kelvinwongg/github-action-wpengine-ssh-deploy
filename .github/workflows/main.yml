@@ -42,6 +42,7 @@ jobs:
           echo ${{steps.file_changed.outputs.action_fruit}}
           echo GITHUB.SHA ${{ github.sha }}
           git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+          git log
 
       # Runs a set of commands using the runners shell
       - name: Tree of $GITHUB_WORKSPACE
