@@ -31,12 +31,13 @@ jobs:
         run: |
           echo List of file changed
           echo "::set-output name=action_fruit::strawberry"
+          echo GITHUB.SHA ${{ github.sha }}
           git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
 
       # Runs a set of commands using the runners shell
       - name: Tree of $GITHUB_WORKSPACE
         env:
-          $ACTION_FRUIT: ${{ steps.file_changed.output.action_fruit }}
+          $ACTION_FRUIT: ${{ steps.file_changed.outputs.action_fruit }}
         run: |
           echo Tree of $GITHUB_WORKSPACE
           echo $ACTION_FRUIT
