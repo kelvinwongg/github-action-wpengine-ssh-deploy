@@ -31,6 +31,7 @@ jobs:
         run: |
           echo List of file changed
           echo "::set-output name=action_fruit::strawberry"
+          echo ${{steps.file_changed.outputs.action_fruit}}
           echo GITHUB.SHA ${{ github.sha }}
           git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
 
