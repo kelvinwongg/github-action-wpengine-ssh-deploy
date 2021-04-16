@@ -18,6 +18,8 @@ jobs:
   deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      GIT_DIFF_TREE: ''
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -28,8 +30,12 @@ jobs:
           # Default: 1
           fetch-depth: "2"
 
-      - name: Git diff-tree command
-        run: git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r ${{ github.sha }}
+      - name: Get list of changed files in Git
+        run: |
+          run: echo '::set-output name=GIT_DIFF_TREE::$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r ${{ github.sha }})'
+        
+      - name: RSYNC to WPEngine with file list
+        run: echo $GIT_DIFF_TREE
       # - name: get changed files
       #   id: getfile
       #   run: |
