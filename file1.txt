@@ -1,2 +1,3 @@
 file1.txt content
 modified
+modified
