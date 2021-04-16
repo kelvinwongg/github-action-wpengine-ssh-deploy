@@ -32,7 +32,7 @@ jobs:
 
       - name: Get list of changed files in Git
         run: |
-          run: echo '::set-output name=GIT_DIFF_TREE::$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r ${{ github.sha }})'
+          echo '::set-output name=GIT_DIFF_TREE::$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r ${{ github.sha }})'
         
       - name: RSYNC to WPEngine with file list
         run: echo $GIT_DIFF_TREE
