@@ -14,7 +14,7 @@ jobs:
           fetch-depth: "2"
 
       - name: Set branch environment variable
-        run: echo $GITHUB_HEAD_REF
+        run: echo ${{ github.base.ref }}
 
       - name: Get list of changed files in Git
         id: changed_files
