@@ -15,3 +15,5 @@ chmod 600 "$SSH_KEY_PRIVATE_PATH"
 
 # TRY SSH
 ssh -i ${SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
+
+echo "::set-output name=changed_files::'This is a list of changed files.'"
