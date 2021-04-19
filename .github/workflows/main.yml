@@ -29,13 +29,14 @@ jobs:
           echo '::set-output name=GIT_DIFF_TREE::$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r ${{ github.sha }})'
 
       # rsync -azPvn --files-from=./file-list -e "ssh -i ~/Dropbox/tti/keys/wpegitkey" ./src/ ttidev@ttidev.ssh.wpengine.net:~/sites/ttidev/rsync-test
+          # rsync -azPv --files-from=./file_list -e "ssh -i ./private_key" $GITHUB_WORKSPACE "${{ env.wpe_ssh_host }}"
       - name: Deploy to WPEngine with git diff-tree
         run: |
           echo "${{ steps.changed_files.outputs.GIT_DIFF_TREE }}" >> ./file_list
           echo ${{ env.current_branch }}
           echo ${{ env.wpe_ssh_host }}
           echo "${{ secrets.WPE_GIT_KEY_PRIVATE }}" >> ./private_key
-          rsync -azPv --files-from=./file_list -e "ssh -i ./private_key" $GITHUB_WORKSPACE ${{ env.wpe_ssh_host }}
+          ssh ${{ env.wpe_ssh_host }} -i ./private_key
 
 
 
