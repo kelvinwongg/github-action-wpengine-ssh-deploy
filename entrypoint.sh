@@ -14,4 +14,4 @@ echo "$INPUT_WPE_SSH_KEY_PRIVATE" > "$SSH_KEY_PRIVATE_PATH"
 chmod 600 "$SSH_KEY_PRIVATE_PATH"
 
 # TRY SSH
-# ssh -p 22 -i ${SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
+ssh -p 22 -i ${SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
