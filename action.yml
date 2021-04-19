@@ -9,11 +9,11 @@ inputs:
   WPE_ENV_NAME:
     description: 'Your WPEngine site name(id)'
     required: true
-  WPE_SSHG_KEY_PUBLIC:
-    description: 'Your SSH public key for WPE'
+  WPE_SSH_KEY_PUBLIC:
+    description: 'Your SSH public key for WPE, stored as Github Secret'
     required: true
-  WPE_SSHG_KEY_PRIVATE:
-    description: 'Your SSH private key for WPE'
+  WPE_SSH_KEY_PRIVATE:
+    description: 'Your SSH private key for WPE, stored as Github Secret'
     required: true
 outputs:
   time: # id of output
@@ -24,3 +24,5 @@ runs:
   args:
     - ${{ inputs.who-to-greet }}
     - ${{ inputs.WPE_ENV_NAME }}
+    - ${{ inputs.WPE_SSH_KEY_PUBLIC }}
+    - ${{ inputs.WPE_SSH_KEY_PRIVATE }}
