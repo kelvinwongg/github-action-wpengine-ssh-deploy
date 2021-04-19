@@ -6,6 +6,9 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  WPE_ENV_NAME:
+    description: 'Your WPEngine site name(id)'
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'
