@@ -3,19 +3,19 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Deploy to WPEngine
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: SSH Deploy to WPEngine
         uses: ./ # Uses an action in the root directory
-        id: hello
+        id: deploy
         with:
           # who-to-greet: 'Mona the Octocat'
-          WPE_ENV_NAME: 'ttidev'
+          WPE_ENV_NAME: "ttidev"
           WPE_SSH_KEY_PRIVATE: ${{ secrets.WPE_GIT_KEY_PRIVATE }}
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Get the list of changed files
+        run: echo 'List of changed files - ${{ steps.deploy.outputs.time }}'
