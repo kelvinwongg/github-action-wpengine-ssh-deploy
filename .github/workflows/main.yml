@@ -15,9 +15,6 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: deploy
         with:
-          # who-to-greet: 'Mona the Octocat'
           WPE_ENV_NAME: "ttidev"
           WPE_SSH_KEY_PRIVATE: ${{ secrets.WPE_GIT_KEY_PRIVATE }}
-      # Use the output from the `hello` step
-      - name: Get the list of changed files
-        run: echo '${{ steps.deploy.outputs.changed_files }}'
+          TPO_PATH: "rsync-test"
