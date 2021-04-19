@@ -5,6 +5,7 @@
 # : ${INPUT_WPE_SSH_KEY_PRIVATE?Required private key secret not set.}
 
 echo "Hello $1"
+echo "Hello $INPUT_WHO_TO_GREET"
 time=$(date)
 echo "::set-output name=time::$time"
 echo "INPUT_WPEENVNAME: $INPUT_WPEENVNAME"
