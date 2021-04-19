@@ -29,13 +29,11 @@ if [ -n "$TPO_SRC_PATH" ]; then
 else
     SRC_PATH="."
 fi
-
 WPE_DESTINATION="$WPE_ENV_NAME"@"$WPE_SSH_HOST":sites/"$WPE_ENV_NAME"/"$DIR_PATH"
 
 # List of changed files
-# git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r $GITHUB_SHA
 GIT_DIFF_TREE=$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r $GITHUB_SHA)
 echo $GIT_DIFF_TREE
 
 # Set output 'changed_files'
-# echo "::set-output name=changed_files::'This is a list of changed files.'"
+echo "::set-output name=changed_files::$GIT_DIFF_TREE"
