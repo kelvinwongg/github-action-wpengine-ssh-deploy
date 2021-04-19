@@ -1,6 +1,13 @@
 # Container image that runs your code
 FROM alpine:3.10
 
+# Add packages require for SSH connection
+RUN apk update && \
+	apk add --no-cache ca-certificates \
+	openssh-client \
+	sshpass \
+	bash
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
