@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'WPEngine SSH Deploy'
+description: 'Action to deploy to WPEngine via SSH and output list of changed files'
 inputs:
   WPE_ENV_NAME:
     description: 'Your WPEngine site name(id)'
@@ -8,8 +8,8 @@ inputs:
     description: 'Your SSH private key for WPE in Github Secret'
     required: true
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  changed_files:
+    description: 'A list of changed files'
 runs:
   using: 'docker'
   image: 'Dockerfile'
