@@ -37,6 +37,7 @@ jobs:
           echo ${{ env.wpe_ssh_host }}
           echo "${{ secrets.WPE_GIT_KEY_PRIVATE }}" >> ./private_key
           ssh ${{ env.wpe_ssh_host }} -i ./private_key
+          ping ${{ env.wpe_ssh_host }}
 
 
 
