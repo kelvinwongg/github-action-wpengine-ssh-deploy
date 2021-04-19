@@ -12,7 +12,7 @@ WPE_SSHG_KEY_PUBLIC_PATH="$SSH_PATH/github_action.pub"
 
 # Setup our SSH Connection & use keys
 mkdir "$SSH_PATH"
-ssh-keyscan -t rsa "$WPE_SSH_HOST" >> "$KNOWN_HOSTS_PATH"
+# ssh-keyscan -t rsa "$WPE_SSH_HOST" >> "$KNOWN_HOSTS_PATH"
 
 #Copy Secret Keys to container
 echo "$INPUT_WPE_SSH_KEY_PRIVATE" > "$WPE_SSHG_KEY_PRIVATE_PATH"
@@ -25,4 +25,5 @@ chmod 600 "$WPE_SSHG_KEY_PRIVATE_PATH"
 chmod 644 "$WPE_SSHG_KEY_PUBLIC_PATH"
 
 # ls . -alh
-ssh -v -p 22 -i ${WPE_SSHG_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
+# ssh -v -p 22 -i ${WPE_SSHG_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
+ssh -i ${WPE_SSHG_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
