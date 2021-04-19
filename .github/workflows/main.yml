@@ -34,7 +34,7 @@ jobs:
           echo ${{ steps.changed_files.outputs.GIT_DIFF_TREE }}
           echo ${{ env.current_branch }}
           echo ${{ env.wpe_ssh_host }}
-          rsync -azPvn --files-from=${{ steps.changed_files.outputs.GIT_DIFF_TREE }} -e "ssh -i ~/Dropbox/tti/keys/wpegitkey" $GITHUB_WORKSPACE ${{ env.wpe_ssh_host }}
+          rsync -azPvn --files-from=${{ steps.changed_files.outputs.GIT_DIFF_TREE }} -e "ssh -i ${{ secrets.WPE_GIT_KEY_PRIVATE }}" $GITHUB_WORKSPACE ${{ env.wpe_ssh_host }}
 
 
 
