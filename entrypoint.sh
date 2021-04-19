@@ -12,8 +12,6 @@
 # echo "INPUT_WPE_SSH_KEY_PUBLIC: $INPUT_WPE_SSH_KEY_PUBLIC"
 # echo "INPUT_WPE_SSH_KEY_PRIVATE: $INPUT_WPE_SSH_KEY_PRIVATE"
 
-# cat <<< '$INPUT_WPE_SSH_KEY_PRIVATE' > ./private_key
-cat <<< 'asdfasdf'
-cat <<< $INPUT_WPE_SSH_KEY_PRIVATE
+cat $INPUT_WPE_SSH_KEY_PRIVATE > ./private_key
 tree .
 ssh ttidev@ttidev.ssh.wpengine.net -i ./private_key
