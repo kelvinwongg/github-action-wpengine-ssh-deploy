@@ -37,4 +37,4 @@ GIT_DIFF_TREE=$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r 
 echo "$GIT_DIFF_TREE" >> "$GIT_DIFF_TREE_PATH"
 
 # Do the RSYNC
-rsync -azPvn --files-from=$GIT_DIFF_TREE_PATH -e "ssh -i ${SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no" $SRC_PATH "$WPE_DESTINATION"
+rsync -azPv --files-from=$GIT_DIFF_TREE_PATH -e "ssh -i ${SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no" $SRC_PATH "$WPE_DESTINATION"
