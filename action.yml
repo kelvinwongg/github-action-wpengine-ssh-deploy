@@ -9,6 +9,12 @@ inputs:
   WPE_ENV_NAME:
     description: 'Your WPEngine site name(id)'
     required: true
+  WPE_SSHG_KEY_PUBLIC:
+    description: 'Your SSH public key for WPE'
+    required: true
+  WPE_SSHG_KEY_PRIVATE:
+    description: 'Your SSH private key for WPE'
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'
