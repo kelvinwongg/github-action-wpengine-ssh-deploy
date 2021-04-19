@@ -32,8 +32,7 @@ fi
 WPE_DESTINATION="$WPE_ENV_NAME"@"$WPE_SSH_HOST":sites/"$WPE_ENV_NAME"/"$DIR_PATH"
 
 # List of changed files
+GIT_DIFF_TREE_PATH="./git_diff_tree"
 GIT_DIFF_TREE=$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r $GITHUB_SHA)
-echo $GIT_DIFF_TREE
-
-# Set output 'changed_files'
-echo "::set-output name=changed_files::$GIT_DIFF_TREE"
+echo "$GIT_DIFF_TREE" >> "$GIT_DIFF_TREE_PATH"
+cat $GIT_DIFF_TREE_PATH

@@ -1,5 +1,5 @@
 name: 'WPEngine SSH Deploy'
-description: 'Action to deploy to WPEngine via SSH and output list of changed files'
+description: 'Action to deploy to WPEngine via SSH'
 inputs:
   WPE_ENV_NAME:
     description: 'Your WPEngine site name(id)'
@@ -7,9 +7,6 @@ inputs:
   WPE_SSH_KEY_PRIVATE:
     description: 'Your SSH private key for WPE in Github Secret'
     required: true
-outputs:
-  changed_files:
-    description: 'A list of changed files'
 runs:
   using: 'docker'
   image: 'Dockerfile'

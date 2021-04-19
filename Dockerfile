@@ -4,7 +4,7 @@ FROM alpine:latest
 # Add packages require for SSH connection
 RUN apk update && \
 	apk add --no-cache \
-	ca-certificates \
+	# ca-certificates \
 	git \
 	openssh-client
 	# sshpass \
