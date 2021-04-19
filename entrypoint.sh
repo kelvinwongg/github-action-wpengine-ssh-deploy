@@ -6,7 +6,7 @@
 
 #SSH Key Vars 
 SSH_PATH="$HOME/.ssh"
-KNOWN_HOSTS_PATH="$SSH_PATH/known_hosts"
+# KNOWN_HOSTS_PATH="$SSH_PATH/known_hosts"
 WPE_SSH_KEY_PRIVATE_PATH="$SSH_PATH/github_action"
 WPE_SSH_KEY_PUBLIC_PATH="$SSH_PATH/github_action.pub"
 
@@ -25,5 +25,5 @@ chmod 600 "$WPE_SSH_KEY_PRIVATE_PATH"
 chmod 644 "$WPE_SSH_KEY_PUBLIC_PATH"
 
 # ls . -alh
-ssh -v -i ${WPE_SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
+ssh -v -p 22 -i ${WPE_SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
 # ssh -i ${WPE_SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
