@@ -4,18 +4,26 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-### `who-to-greet`
+### `WPE_ENV_NAME`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** Your WPEngine site name. `wpeid`
+
+### `WPE_SSH_KEY_PRIVATE`
+
+**Required** Your SSH private key for WPE in Github Secret' `private key`
+
+### `DEST_PATH`
+
+Optional relative destination path `destination path`
+
+###  `SRC_PATH`
+
+Optional relative source path `source path`
 
 ## Outputs
 
-### `time`
-
-The time we greeted you.
+This action do not output.
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
-with:
-  who-to-greet: 'Mona the Octocat'
+Refer to the sample yaml file in this repo: `.github/workflows/sample.yml`

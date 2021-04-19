@@ -1,3 +1,0 @@
-new file2.txt
-modified
-modified
