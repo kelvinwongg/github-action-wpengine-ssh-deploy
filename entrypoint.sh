@@ -18,14 +18,14 @@ chmod 600 "$SSH_KEY_PRIVATE_PATH"
 
 # Set RSYNC variables
 WPE_SSH_HOST="$INPUT_WPE_ENV_NAME.ssh.wpengine.net"
-if [ -n "$DEST_PATH" ]; then 
-    DIR_PATH="$DEST_PATH"
+if [ -n "$INPUT_DEST_PATH" ]; then 
+    DIR_PATH="$INPUT_DEST_PATH"
 else 
     DIR_PATH=""
 fi
 
-if [ -n "$SRC_PATH" ]; then
-    SRC_PATH="$SRC_PATH"
+if [ -n "$INPUT_SRC_PATH" ]; then
+    SRC_PATH="$INPUT_SRC_PATH"
 else
     SRC_PATH="."
 fi
