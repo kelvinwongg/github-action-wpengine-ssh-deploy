@@ -25,5 +25,5 @@ chmod 600 "$WPE_SSH_KEY_PRIVATE_PATH"
 chmod 644 "$WPE_SSH_KEY_PUBLIC_PATH"
 
 # ls . -alh
-# ssh -v -p 22 -i ${WPE_SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
-ssh -i ${WPE_SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
+ssh -v -p 22 -i ${WPE_SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
+# ssh -i ${WPE_SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
