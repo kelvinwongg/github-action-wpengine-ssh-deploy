@@ -17,7 +17,7 @@ chmod 600 "$SSH_KEY_PRIVATE_PATH"
 # ssh -i ${SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
 
 # Set RSYNC variables
-WPE_SSH_HOST="$WPE_ENV_NAME.ssh.wpengine.net"
+WPE_SSH_HOST="$INPUT_WPE_ENV_NAME.ssh.wpengine.net"
 if [ -n "$DEST_PATH" ]; then 
     DIR_PATH="$DEST_PATH"
 else 
@@ -29,7 +29,7 @@ if [ -n "$SRC_PATH" ]; then
 else
     SRC_PATH="."
 fi
-WPE_DESTINATION="$WPE_ENV_NAME"@"$WPE_SSH_HOST":sites/"$WPE_ENV_NAME"/"$DIR_PATH"
+WPE_DESTINATION="$INPUT_WPE_ENV_NAME"@"$WPE_SSH_HOST":sites/"$INPUT_WPE_ENV_NAME"/"$DIR_PATH"
 
 # List of changed files
 GIT_DIFF_TREE_PATH="./git_diff_tree"
