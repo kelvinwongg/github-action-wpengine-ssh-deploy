@@ -16,4 +16,4 @@ echo $INPUT_WPE_SSH_KEY_PRIVATE > ./private_key
 chmod 400 ./private_key
 cat private_key
 # ls . -alh
-ssh ttidev@ttidev.ssh.wpengine.net -i ./private_key -o "StrictHostKeyChecking no"
+ssh -i "./private_key" -o "StrictHostKeyChecking no" ttidev@ttidev.ssh.wpengine.net
