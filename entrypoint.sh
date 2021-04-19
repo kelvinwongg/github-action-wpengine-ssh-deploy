@@ -5,7 +5,7 @@
 
 #SSH Key Vars 
 SSH_PATH="."
-SSH_KEY_PRIVATE_PATH="$SSH_PATH/github_action"
+SSH_KEY_PRIVATE_PATH="$SSH_PATH/wpegitkey"
 
 #Copy Secret Keys to container
 echo "$INPUT_WPE_SSH_KEY_PRIVATE" > "$SSH_KEY_PRIVATE_PATH"
@@ -14,4 +14,4 @@ echo "$INPUT_WPE_SSH_KEY_PRIVATE" > "$SSH_KEY_PRIVATE_PATH"
 chmod 600 "$SSH_KEY_PRIVATE_PATH"
 
 # TRY SSH
-ssh -p 22 -i ${SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
+ssh -i ${SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no ttidev@ttidev.ssh.wpengine.net
