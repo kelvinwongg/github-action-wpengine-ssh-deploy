@@ -1,6 +1,8 @@
 #!/bin/sh -l
 
-: ${WPE_SSHG_KEY_PRIVATE?Required secret not set.}
+: ${WPE_ENV_NAME?Required WPE site name not set.}
+: ${WPE_SSH_KEY_PUBLIC?Required public key secret not set.}
+: ${WPE_SSH_KEY_PRIVATE?Required private key secret not set.}
 
 echo "Hello $1"
 time=$(date)
