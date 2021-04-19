@@ -6,7 +6,7 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-  wpEnvName:
+  wpeEnvName:
     description: 'Your WPEngine site name(id)'
     required: true
   WPE_SSH_KEY_PUBLIC:
@@ -23,6 +23,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.who-to-greet }}
-    - ${{ inputs.wpEnvName }}
+    - ${{ inputs.wpeEnvName }}
     # - ${{ inputs.wpeSshKeyPublic }}
     # - ${{ inputs.WPE_SSH_KEY_PRIVATE }}
