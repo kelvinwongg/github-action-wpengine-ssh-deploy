@@ -1,78 +1,19 @@
-name: Deploy to WPEngine
-
-on:
-  push:
-    branches: [master]
+on: [push]
 
 jobs:
-  deploy:
+  hello_world_job:
     runs-on: ubuntu-latest
-
+    name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
         with:
-          fetch-depth: "2"
-
-      - name: Set environment variable current_branch
-        run: |
-          echo $GITHUB_REF
-          echo "current_branch=$GITHUB_REF" >> $GITHUB_ENV
-
-      - name: Set environment variable for 'master' branch
-        if: ${{ env.current_branch == 'refs/heads/master' }}
-        run: |
-          echo "wpe_ssh_host=ttidev@ttidev.ssh.wpengine.net:~/sites/ttidev/rsync-test" >> $GITHUB_ENV
-
-      - name: Get list of changed files in Git
-        id: changed_files
-        run: |
-          echo '::set-output name=GIT_DIFF_TREE::$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r ${{ github.sha }})'
-
-      # rsync -azPvn --files-from=./file-list -e "ssh -i ~/Dropbox/tti/keys/wpegitkey" ./src/ ttidev@ttidev.ssh.wpengine.net:~/sites/ttidev/rsync-test
-          # rsync -azPv --files-from=./file_list -e "ssh -i ./private_key" $GITHUB_WORKSPACE "${{ env.wpe_ssh_host }}"
-          # ssh ${{ env.wpe_ssh_host }} -i ./private_key
-      - name: Deploy to WPEngine with git diff-tree
-        run: |
-          echo "${{ steps.changed_files.outputs.GIT_DIFF_TREE }}" >> ./file_list
-          echo ${{ env.current_branch }}
-          echo ${{ env.wpe_ssh_host }}
-          echo "${{ secrets.WPE_GIT_KEY_PRIVATE }}" >> ./private_key
-          ping ttidev@ttidev.ssh.wpengine.net
-
-
-
-
-
-      # - name: get changed files
-      #   id: getfile
-      #   run: |
-      #     echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only --diff-filter=ACMRT -r ${{ github.sha }} | xargs)"
-      # - name: echo output
-      #   run: |
-      #     echo ${{ steps.getfile.outputs.files }}
-      # # Runs a single command using the runners shell
-      # - name: Set selected color
-      #   run: |
-      #     # echo '::set-output name=SELECTED_COLOR::green'
-      #     echo "::set-output name=SELECTED_COLOR::strawberry"
-      #     echo "The selected color is $SELECTED_COLOR"
-      #   id: random-color-generator
-      # - name: Get color
-      #   run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-      # - name: List of file changed
-      #   id: file_changed
-      #   run: |
-      #     echo List of file changed
-      #     echo "::set-output name=action_fruit::strawberry"
-      #     echo ${{steps.file_changed.outputs.action_fruit}}
-      #     echo GITHUB.SHA ${{ github.sha }}
-      #     git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
-      #     git log
-      # # Runs a set of commands using the runners shell
-      # - name: Tree of $GITHUB_WORKSPACE
-      #   env:
-      #     $ACTION_FRUIT: ${{ steps.file_changed.outputs.action_fruit }}
-      #   run: |
-      #     echo Tree of $GITHUB_WORKSPACE
-      #     echo $ACTION_FRUIT
-      #     tree $GITHUB_WORKSPACE
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
