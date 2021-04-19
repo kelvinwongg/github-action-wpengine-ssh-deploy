@@ -18,4 +18,4 @@ jobs:
           WPE_SSH_KEY_PRIVATE: ${{ secrets.WPE_GIT_KEY_PRIVATE }}
       # Use the output from the `hello` step
       - name: Get the list of changed files
-        run: echo 'List of changed files - ${{ steps.deploy.outputs.time }}'
+        run: echo 'List of changed files - ${{ steps.deploy.outputs.changed_files }}'
