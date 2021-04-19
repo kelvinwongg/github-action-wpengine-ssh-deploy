@@ -2,10 +2,10 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+  # who-to-greet:  # id of input
+  #   description: 'Who to greet'
+  #   required: true
+  #   default: 'World'
   WPE_ENV_NAME:
     description: 'Your WPEngine site name(id)'
     required: true
@@ -22,7 +22,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    # - ${{ inputs.who-to-greet }}
     - ${{ inputs.WPE_ENV_NAME }}
     - ${{ inputs.WPE_SSH_KEY_PUBLIC }}
     - ${{ inputs.WPE_SSH_KEY_PRIVATE }}
