@@ -1,11 +1,11 @@
 #!/bin/sh -l
 
-: ${INPUT_WPEENVNAME?Required WPE site name not set.}
+: ${INPUT_WPE_ENV_NAME?Required WPE site name not set.}
 # : ${INPUT_WPE_SSH_KEY_PUBLIC?Required public key secret not set.}
 # : ${INPUT_WPE_SSH_KEY_PRIVATE?Required private key secret not set.}
 
 echo "Hello $1"
-echo "Hello $INPUT_WHO_TO_GREET"
+echo "Hello $INPUT_WHOTOGREET"
 time=$(date)
 echo "::set-output name=time::$time"
-echo "INPUT_WPEENVNAME: $INPUT_WPEENVNAME"
+echo "INPUT_WPE_ENV_NAME: $INPUT_WPE_ENV_NAME"
