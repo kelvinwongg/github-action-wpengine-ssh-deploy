@@ -7,6 +7,12 @@ inputs:
   WPE_SSH_KEY_PRIVATE:
     description: 'Your SSH private key for WPE in Github Secret'
     required: true
+  DEST_PATH:
+    description: 'Optional relative destination path'
+    required: false
+  SRC_PATH:
+    description: 'Optional relative source path'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
