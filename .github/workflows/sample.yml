@@ -12,7 +12,7 @@ jobs:
         with:
           fetch-depth: 2
       - name: SSH Deploy to WPEngine
-        uses: kelvinwongg/github-action-wpengine-ssh-deploy@latest # Uses an action in the root directory
+        uses: ./ # Uses an action in the root directory
         id: deploy
         with:
           WPE_ENV_NAME: "ttidev"
